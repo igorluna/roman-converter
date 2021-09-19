@@ -106,5 +106,64 @@ namespace roman_convertertest
             // Assert
             actual.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("I", 1)]
+        [InlineData("II", 2)]
+        [InlineData("III", 3)]
+        public void ToInt_ShouldConvertSuccessfully_WhenUnitRepeatUntilThreeTimes(string romanNumber, int expected)
+        {
+            // Arrange
+
+            // Act
+            int actual = romanNumber.ToInt();
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+        [Theory]
+        [InlineData("X", 10)]
+        [InlineData("XX", 20)]
+        [InlineData("XXX", 30)]
+        public void ToInt_ShouldConvertSuccessfully_WhenTensRepeatUntilThreeTimes(string romanNumber, int expected)
+        {
+            // Arrange
+
+            // Act
+            int actual = romanNumber.ToInt();
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+        [Theory]
+        [InlineData("C", 100)]
+        [InlineData("CC", 200)]
+        [InlineData("CCC", 300)]
+        public void ToInt_ShouldConvertSuccessfully_WhenHundredsRepeatUntilThreeTimes(string romanNumber, int expected)
+        {
+            // Arrange
+
+            // Act
+            int actual = romanNumber.ToInt();
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData("M", 1000)]
+        [InlineData("MM", 2000)]
+        [InlineData("MMM", 3000)]
+        public void ToInt_ShouldConvertSuccessfully_WhenThousandsRepeatUntilThreeTimes(string romanNumber, int expected)
+        {
+            // Arrange
+
+            // Act
+            int actual = romanNumber.ToInt();
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+        // V, L e D, não pode repetir
     }
 }
