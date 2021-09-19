@@ -16,10 +16,16 @@ namespace roman_converter
             {'M', 1000},
         };
 
-        public static int ToInt(this string roman)
+        public static int ToInt(this string romanNumber)
         {
+            if(romanNumber.Contains("VV") 
+            || romanNumber.Contains("LL") 
+            || romanNumber.Contains("DD"))
+                throw new InvalidCastException("Invalid roman number.");
+
             int convertedValue = 0;
-            foreach(var character in roman)
+
+            foreach(var character in romanNumber)
             {
                 if(romanValues.TryGetValue(character, out int value))
                 {

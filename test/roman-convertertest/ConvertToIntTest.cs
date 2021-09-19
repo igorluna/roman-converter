@@ -165,5 +165,21 @@ namespace roman_convertertest
             actual.Should().Be(expected);
         }
         // V, L e D, não pode repetir
+
+        [Theory]
+        [InlineData("VV")]
+        [InlineData("LL")]
+        [InlineData("DD")]
+        [InlineData("DDMM")]
+        public void ToInt_ShouldThrowInvalidArgumentException_WhenVLorDRepeatInTheString(string romanNumber)
+        {
+            // Arrange
+
+            // Act
+            Action action = () => romanNumber.ToInt();
+
+            // Assert
+            action.Should().Throw<InvalidCastException>();
+        }
     }
 }
